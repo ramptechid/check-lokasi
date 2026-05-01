@@ -4,109 +4,133 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Check Lokasi User</title>
+  <title>Filter Lokasi Jabodetabek</title>
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <main class="app">
-
-    <section class="card">
+  <div id="checkingPage" class="page active">
+    <div class="card center">
       <div class="icon">📍</div>
-
-      <h1>Check Lokasi</h1>
-
-      <p class="desc">
-        Website ini akan meminta akses lokasi dan menampilkan detail lokasi kamu.
+      <h1>Cek Lokasi</h1>
+      <p>
+        Website sedang mengecek apakah lokasi Anda berada di area Jabodetabek.
       </p>
-
       <div id="statusBox" class="status loading">
         Meminta akses lokasi...
       </div>
+      <button id="btnRetry" class="btn">Cek Ulang Lokasi</button>
+    </div>
+  </div>
 
-      <button id="btnCheck" class="btn">
+  <div id="allowedPage" class="page">
+    <div class="app">
+      <div class="card success-card">
+        <h1>Website Utama</h1>
+        <p>
+          Akses diterima. Lokasi Anda berada di area Jabodetabek.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Detail Koordinat</h2>
+
+        <div class="data-list">
+          <div class="row">
+            <span>Latitude</span>
+            <strong id="latitude">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Longitude</span>
+            <strong id="longitude">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Akurasi GPS</span>
+            <strong id="accuracy">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Waktu Deteksi</span>
+            <strong id="time">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Area Terdeteksi</span>
+            <strong id="detectedArea">-</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Detail Daerah</h2>
+
+        <div class="data-list">
+          <div class="row">
+            <span>Jalan</span>
+            <strong id="road">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Desa / Kelurahan</span>
+            <strong id="village">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Kecamatan</span>
+            <strong id="district">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Kota / Kabupaten</span>
+            <strong id="city">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Provinsi</span>
+            <strong id="province">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Kode Pos</span>
+            <strong id="postcode">-</strong>
+          </div>
+
+          <div class="row">
+            <span>Negara</span>
+            <strong id="country">-</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Alamat Lengkap</h2>
+        <p id="fullAddress" class="full-address">-</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="blockedPage" class="page">
+    <div class="card center blocked-card">
+      <div class="icon blocked-icon">🚫</div>
+      <h1>Maaf</h1>
+      <p id="blockedMessage">
+        Area Anda belum masuk dalam wilayah layanan kami.
+      </p>
+
+      <div class="mini-info">
+        <p><b>Latitude:</b> <span id="blockedLat">-</span></p>
+        <p><b>Longitude:</b> <span id="blockedLng">-</span></p>
+        <p><b>Alamat:</b> <span id="blockedAddress">-</span></p>
+      </div>
+
+      <button id="btnRetryBlocked" class="btn danger">
         Cek Ulang Lokasi
       </button>
-    </section>
-
-    <section class="card result-card">
-      <h2>Detail Koordinat</h2>
-
-      <div class="data-list">
-        <div class="row">
-          <span>Latitude</span>
-          <strong id="latitude">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Longitude</span>
-          <strong id="longitude">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Akurasi GPS</span>
-          <strong id="accuracy">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Waktu Deteksi</span>
-          <strong id="time">-</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="card result-card">
-      <h2>Detail Daerah</h2>
-
-      <div class="data-list">
-        <div class="row">
-          <span>Jalan</span>
-          <strong id="road">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Desa / Kelurahan</span>
-          <strong id="village">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Kecamatan</span>
-          <strong id="district">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Kota / Kabupaten</span>
-          <strong id="city">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Provinsi</span>
-          <strong id="province">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Kode Pos</span>
-          <strong id="postcode">-</strong>
-        </div>
-
-        <div class="row">
-          <span>Negara</span>
-          <strong id="country">-</strong>
-        </div>
-      </div>
-    </section>
-
-    <section class="card result-card">
-      <h2>Alamat Lengkap</h2>
-      <p id="fullAddress" class="full-address">-</p>
-
-      <p class="credit">
-        Data alamat dari OpenStreetMap / Nominatim.
-      </p>
-    </section>
-
-  </main>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
