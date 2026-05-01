@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Check Lokasi User</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <section class="card">
+      <div class="icon">📍</div>
+
+      <h1>Check Lokasi</h1>
+
+      <p class="desc">
+        Website ini akan meminta akses lokasi dan menampilkan detail lokasi kamu.
+      </p>
+
+      <div id="statusBox" class="status loading">
+        Meminta akses lokasi...
+      </div>
+
+      <button id="btnCheck" class="btn">
+        Cek Ulang Lokasi
+      </button>
+    </section>
+
+    <section class="card result-card">
+      <h2>Detail Koordinat</h2>
+
+      <div class="data-list">
+        <div class="row">
+          <span>Latitude</span>
+          <strong id="latitude">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Longitude</span>
+          <strong id="longitude">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Akurasi GPS</span>
+          <strong id="accuracy">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Waktu Deteksi</span>
+          <strong id="time">-</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card result-card">
+      <h2>Detail Daerah</h2>
+
+      <div class="data-list">
+        <div class="row">
+          <span>Jalan</span>
+          <strong id="road">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Desa / Kelurahan</span>
+          <strong id="village">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Kecamatan</span>
+          <strong id="district">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Kota / Kabupaten</span>
+          <strong id="city">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Provinsi</span>
+          <strong id="province">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Kode Pos</span>
+          <strong id="postcode">-</strong>
+        </div>
+
+        <div class="row">
+          <span>Negara</span>
+          <strong id="country">-</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card result-card">
+      <h2>Alamat Lengkap</h2>
+      <p id="fullAddress" class="full-address">-</p>
+
+      <p class="credit">
+        Data alamat dari OpenStreetMap / Nominatim.
+      </p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
